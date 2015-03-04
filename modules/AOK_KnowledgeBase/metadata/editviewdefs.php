@@ -20,6 +20,13 @@ array (
           'field' => '30',
         ),
       ),
+        'includes' =>
+            array (
+                0 =>
+                    array (
+                        'file' => 'include/javascript/tiny_mce/tiny_mce.js',
+                    ),
+            ),
       'useTabs' => false,
       'tabDefs' => 
       array (
@@ -54,7 +61,7 @@ array (
             'label' => 'LBL_REVISION',
           ),
         ),
-        2 => 
+        2 =>
         array (
           0 => 'description',
         ),

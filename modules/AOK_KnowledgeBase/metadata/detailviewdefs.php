@@ -64,9 +64,14 @@ array (
             'label' => 'LBL_REVISION',
           ),
         ),
-        2 => 
+        2 =>
         array (
-          0 => 'description',
+            0 =>
+                array (
+                    'name' => 'description',
+                    'label' => 'LBL_DESCRIPTION',
+                    'customCode' => '{$fields.description.value}',
+                ),
         ),
         3 => 
         array (
