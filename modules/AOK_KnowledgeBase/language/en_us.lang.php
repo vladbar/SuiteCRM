@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +37,41 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+$mod_strings = array (
+  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
+  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
+  'LBL_ID' => 'ID',
+  'LBL_DATE_ENTERED' => 'Date Created',
+  'LBL_DATE_MODIFIED' => 'Date Modified',
+  'LBL_MODIFIED' => 'Modified By',
+  'LBL_MODIFIED_ID' => 'Modified By Id',
+  'LBL_MODIFIED_NAME' => 'Modified By Name',
+  'LBL_CREATED' => 'Created By',
+  'LBL_CREATED_ID' => 'Created By Id',
+  'LBL_DESCRIPTION' => 'Body',
+  'LBL_DELETED' => 'Deleted',
+  'LBL_NAME' => 'Title',
+  'LBL_CREATED_USER' => 'Created by User',
+  'LBL_MODIFIED_USER' => 'Modified by User',
+  'LBL_LIST_NAME' => 'Name',
+  'LBL_EDIT_BUTTON' => 'Edit',
+  'LBL_REMOVE' => 'Remove',
+  'LBL_LIST_FORM_TITLE' => 'Knowledge Base List',
+  'LBL_MODULE_NAME' => 'Knowledge Base',
+  'LBL_MODULE_TITLE' => 'Knowledge Base',
+  'LBL_HOMEPAGE_TITLE' => 'My Knowledge Base',
+  'LNK_NEW_RECORD' => 'Create Knowledge Base',
+  'LNK_LIST' => 'View Knowledge Base',
+  'LNK_IMPORT_AOK_KNOWLEDGEBASE' => 'Import Knowledge Base',
+  'LBL_SEARCH_FORM_TITLE' => 'Search Knowledge Base',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'View History',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
+  'LBL_AOK_KNOWLEDGEBASE_SUBPANEL_TITLE' => 'Knowledge Base',
+  'LBL_NEW_FORM_TITLE' => 'New Knowledge Base',
+  'LBL_STATUS' => 'Status',
+  'LBL_REVISION' => 'Revision',
+  'LBL_AUTHOR_USER_ID' => 'Author (related User ID)',
+  'LBL_AUTHOR' => 'Author',
+  'LBL_APPROVER_USER_ID' => 'Approver (related User ID)',
+  'LBL_APPROVER' => 'Approver',
 );
-
-?>

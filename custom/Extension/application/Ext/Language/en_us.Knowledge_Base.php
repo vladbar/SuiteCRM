@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -41,17 +38,9 @@
  ********************************************************************************/
 
 
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
-);
-
-?>
+$app_list_strings['moduleList']['AOK_KnowledgeBase'] = 'Knowledge Base';
+$app_list_strings['moduleList']['AOK_Knowledge_Base_Categories'] = 'KB Categories';
+$app_list_strings['aok_status_list']['Draft'] = 'Draft';
+$app_list_strings['aok_status_list']['Expired'] = 'Expired';
+$app_list_strings['aok_status_list']['In_Review'] = 'In Review';
+$app_list_strings['aok_status_list']['Published'] = 'Published';

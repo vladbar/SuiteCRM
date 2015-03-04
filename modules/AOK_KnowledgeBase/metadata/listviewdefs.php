@@ -1,7 +1,5 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -41,17 +39,21 @@
  ********************************************************************************/
 
 
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
 
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
 
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+$module_name = 'AOK_KnowledgeBase';
+$listViewDefs[$module_name] = array(
+	'NAME' => array(
+		'width' => '32', 
+		'label' => 'LBL_NAME', 
+		'default' => true,
+        'link' => true),         
+	'ASSIGNED_USER_NAME' => array(
+		'width' => '9', 
+		'label' => 'LBL_ASSIGNED_TO_NAME',
+		'module' => 'Employees',
+        'id' => 'ASSIGNED_USER_ID',
+        'default' => true),
+	
 );
-
 ?>

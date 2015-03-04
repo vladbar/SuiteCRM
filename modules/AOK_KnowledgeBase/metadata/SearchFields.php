@@ -1,7 +1,5 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +38,20 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
+$module_name = 'AOK_KnowledgeBase';
+$searchFields[$module_name] = 
+	array (
+		'name' => array( 'query_type'=>'default'),
+		'current_user_only'=> array('query_type'=>'default','db_field'=>array('assigned_user_id'),'my_items'=>true, 'vname' => 'LBL_CURRENT_USER_FILTER', 'type' => 'bool'),
+		'assigned_user_id'=> array('query_type'=>'default'),
+	    
+		//Range Search Support 
+	   'range_date_entered' => array ('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+	   'start_range_date_entered' => array ('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+	   'end_range_date_entered' => array ('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+	   'range_date_modified' => array ('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+	   'start_range_date_modified' => array ('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+       'end_range_date_modified' => array ('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),	
+	    //Range Search Support 		
 	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
-);
-
 ?>

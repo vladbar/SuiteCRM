@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +37,35 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+$mod_strings = array (
+  'LBL_ASSIGNED_TO_ID' => 'Asignado a Usuario con Id',
+  'LBL_ASSIGNED_TO_NAME' => 'Usuario',
+  'LBL_ID' => 'ID',
+  'LBL_DATE_ENTERED' => 'Fecha de Creación',
+  'LBL_DATE_MODIFIED' => 'Última Modificación',
+  'LBL_MODIFIED' => 'Modificado Por',
+  'LBL_MODIFIED_ID' => 'Modificado Por Id',
+  'LBL_MODIFIED_NAME' => 'Modificado Por Nombre',
+  'LBL_CREATED' => 'Creado Por',
+  'LBL_CREATED_ID' => 'Creado Por Id',
+  'LBL_DESCRIPTION' => 'Descripción',
+  'LBL_DELETED' => 'Eliminado',
+  'LBL_NAME' => 'Nombre',
+  'LBL_CREATED_USER' => 'Creado Por Usuario',
+  'LBL_MODIFIED_USER' => 'Modificado Por Usuario',
+  'LBL_LIST_NAME' => 'Nombre',
+  'LBL_EDIT_BUTTON' => 'Editar',
+  'LBL_REMOVE' => 'Quitar',
+  'LBL_LIST_FORM_TITLE' => 'KB Categories Lista',
+  'LBL_MODULE_NAME' => 'KB Categories',
+  'LBL_MODULE_TITLE' => 'KB Categories',
+  'LBL_HOMEPAGE_TITLE' => 'Mi KB Categories',
+  'LNK_NEW_RECORD' => 'Crear KB Categories',
+  'LNK_LIST' => 'Vista KB Categories',
+  'LNK_IMPORT_AOK_KNOWLEDGE_BASE_CATEGORIES' => 'Import KB Categories',
+  'LBL_SEARCH_FORM_TITLE' => 'Buscar KB Categories',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'Ver Historial',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Actividades',
+  'LBL_AOK_KNOWLEDGE_BASE_CATEGORIES_SUBPANEL_TITLE' => 'KB Categories',
+  'LBL_NEW_FORM_TITLE' => 'Nuevo KB Categories',
 );
-
-?>

@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +37,18 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
+$dictionary['AOK_Knowledge_Base_Categories'] = array(
+	'table'=>'aok_knowledge_base_categories',
+	'audited'=>true,
+		'duplicate_merge'=>true,
+		'fields'=>array (
+),
+	'relationships'=>array (
+),
+	'optimistic_locking'=>true,
+		'unified_search'=>true,
 	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
-);
-
-?>
+if (!class_exists('VardefManager')){
+        require_once('include/SugarObjects/VardefManager.php');
+}
+VardefManager::createVardef('AOK_Knowledge_Base_Categories','AOK_Knowledge_Base_Categories', array('basic','assignable'));

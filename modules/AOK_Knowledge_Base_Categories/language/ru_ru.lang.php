@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +37,35 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+$mod_strings = array (
+  'LBL_ASSIGNED_TO_ID' => 'Ответственный(ая)',
+  'LBL_ASSIGNED_TO_NAME' => 'Ответственный(ая)',
+  'LBL_ID' => 'ID',
+  'LBL_DATE_ENTERED' => 'Дата создания',
+  'LBL_DATE_MODIFIED' => 'Дата изменения',
+  'LBL_MODIFIED' => 'Изменено',
+  'LBL_MODIFIED_ID' => 'Изменено(ID)',
+  'LBL_MODIFIED_NAME' => 'Изменено',
+  'LBL_CREATED' => 'Создано',
+  'LBL_CREATED_ID' => 'Создано(ID)',
+  'LBL_DESCRIPTION' => 'Описание',
+  'LBL_DELETED' => 'Удалено',
+  'LBL_NAME' => 'Название',
+  'LBL_CREATED_USER' => 'Создано',
+  'LBL_MODIFIED_USER' => 'Изменено',
+  'LBL_LIST_NAME' => 'Название',
+  'LBL_EDIT_BUTTON' => 'Править',
+  'LBL_REMOVE' => 'Удалить',
+  'LBL_LIST_FORM_TITLE' => 'KB Categories Список',
+  'LBL_MODULE_NAME' => 'KB Categories',
+  'LBL_MODULE_TITLE' => 'KB Categories',
+  'LBL_HOMEPAGE_TITLE' => 'Мой KB Categories',
+  'LNK_NEW_RECORD' => 'Создать KB Categories',
+  'LNK_LIST' => 'View KB Categories',
+  'LNK_IMPORT_AOK_KNOWLEDGE_BASE_CATEGORIES' => 'Import KB Categories',
+  'LBL_SEARCH_FORM_TITLE' => 'Поиск KB Categories',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'Просмотр истории',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Мероприятия',
+  'LBL_AOK_KNOWLEDGE_BASE_CATEGORIES_SUBPANEL_TITLE' => 'KB Categories',
+  'LBL_NEW_FORM_TITLE' => 'Новый KB Categories',
 );
-
-?>

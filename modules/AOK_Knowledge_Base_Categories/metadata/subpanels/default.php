@@ -1,7 +1,5 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -41,17 +39,38 @@
  ********************************************************************************/
 
 
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
+$module_name='AOK_Knowledge_Base_Categories';
+$subpanel_layout = array(
+	'top_buttons' => array(
+		array('widget_class' => 'SubPanelTopCreateButton'),
+		array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => $module_name),
+	),
 
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
+	'where' => '',
 
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+	'list_fields' => array(
+		'name'=>array(
+	 		'vname' => 'LBL_NAME',
+			'widget_class' => 'SubPanelDetailViewLink',
+	 		'width' => '45%',
+		),
+		'date_modified'=>array(
+	 		'vname' => 'LBL_DATE_MODIFIED',
+	 		'width' => '45%',
+		),
+		'edit_button'=>array(
+            'vname' => 'LBL_EDIT_BUTTON',
+			'widget_class' => 'SubPanelEditButton',
+		 	'module' => $module_name,
+	 		'width' => '4%',
+		),
+		'remove_button'=>array(
+            'vname' => 'LBL_REMOVE',
+			'widget_class' => 'SubPanelRemoveButton',
+		 	'module' => $module_name,
+			'width' => '5%',
+		),
+	),
 );
 
 ?>

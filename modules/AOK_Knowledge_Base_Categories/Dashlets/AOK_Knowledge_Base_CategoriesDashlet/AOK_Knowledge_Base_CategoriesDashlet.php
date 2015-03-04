@@ -1,7 +1,5 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +38,29 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
+/*********************************************************************************
 
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
+ * Description:  Defines the English language pack for the base application.
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
 
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
+require_once('include/Dashlets/DashletGeneric.php');
+require_once('modules/AOK_Knowledge_Base_Categories/AOK_Knowledge_Base_Categories.php');
 
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
-);
+class AOK_Knowledge_Base_CategoriesDashlet extends DashletGeneric { 
+    function AOK_Knowledge_Base_CategoriesDashlet($id, $def = null) {
+		global $current_user, $app_strings;
+		require('modules/AOK_Knowledge_Base_Categories/metadata/dashletviewdefs.php');
 
-?>
+        parent::DashletGeneric($id, $def);
+
+        if(empty($def['title'])) $this->title = translate('LBL_HOMEPAGE_TITLE', 'AOK_Knowledge_Base_Categories');
+
+        $this->searchFields = $dashletData['AOK_Knowledge_Base_CategoriesDashlet']['searchFields'];
+        $this->columns = $dashletData['AOK_Knowledge_Base_CategoriesDashlet']['columns'];
+
+        $this->seedBean = new AOK_Knowledge_Base_Categories();        
+    }
+}

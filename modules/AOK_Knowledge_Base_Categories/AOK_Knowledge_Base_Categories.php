@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?PHP
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +37,15 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
-
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
-
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
-);
-
+/**
+ * THIS CLASS IS FOR DEVELOPERS TO MAKE CUSTOMIZATIONS IN
+ */
+require_once('modules/AOK_Knowledge_Base_Categories/AOK_Knowledge_Base_Categories_sugar.php');
+class AOK_Knowledge_Base_Categories extends AOK_Knowledge_Base_Categories_sugar {
+	
+	function AOK_Knowledge_Base_Categories(){	
+		parent::AOK_Knowledge_Base_Categories_sugar();
+	}
+	
+}
 ?>

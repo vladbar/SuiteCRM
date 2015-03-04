@@ -1,7 +1,4 @@
-<?php 
- //WARNING: The contents of this file are auto-generated
-
-
+<?php
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -40,18 +37,40 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
+$module_name = 'AOK_Knowledge_Base_Categories';
+$viewdefs[$module_name]['DetailView'] = array(
+'templateMeta' => array('form' => array('buttons'=>array('EDIT', 'DUPLICATE', 'DELETE', 'FIND_DUPLICATES',
+                                                         )),
+                        'maxColumns' => '2',
+                        'widths' => array(
+                                        array('label' => '10', 'field' => '30'),
+                                        array('label' => '10', 'field' => '30')
+                                        ),
+                        ),
 
-$entry_point_registry['deleteAttachment'] = array('file' => 'include/SugarFields/Fields/Image/deleteAttachment.php' , 'auth' => '1');
+'panels' =>array (
 
- 
-	$entry_point_registry['responseEntryPoint'] = array(
-	    'file' => 'modules/FP_events/responseEntryPoint.php',
-	    'auth' => false
-	);
+  array (
+    'name',
+    'assigned_user_name',
+  ),
 
-$entry_point_registry['QuickCRMgetConfig'] = array(
-	'file' => 'custom/QuickCRM/getConfig.php',
-	'auth' => false
+  array (
+	array (
+      'name' => 'date_entered',
+      'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+      'label' => 'LBL_DATE_ENTERED',
+    ),
+    array (
+      'name' => 'date_modified',
+      'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+      'label' => 'LBL_DATE_MODIFIED',
+    ),
+  ),
+
+  array (
+    'description',
+  ),
+)
 );
-
 ?>
