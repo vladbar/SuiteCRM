@@ -33,6 +33,8 @@ class CasesViewEdit extends ViewEdit {
 
     function display(){
         parent::display();
+        echo '<link rel="stylesheet" type="text/css" href="custom/modules/Cases/qtip/jquery.qtip.min.css" />';
+        echo '<script type="text/javascript" src="custom/modules/Cases/qtip/jquery.qtip.min.js"></script>';
         global $sugar_config;
         $new = empty($this->bean->id);
         if($new){
