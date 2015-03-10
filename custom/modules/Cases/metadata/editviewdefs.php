@@ -19,14 +19,14 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' =>
-         array (
-          0 =>
-          array (
-            'file' => 'custom/modules/Cases/knowledgebase.js', //call for the js file
-          ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Cases/knowledgebase.js',
         ),
-        'useTabs' => false,
+      ),
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_CASE_INFORMATION' => 
@@ -78,6 +78,7 @@ array (
               'size' => 75,
             ),
           ),
+          1 => '',
         ),
         4 => 
         array (
@@ -86,7 +87,12 @@ array (
             'name' => 'description',
             'nl2br' => true,
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'test_c',
+            'studio' => 'visible',
+            'label' => 'LBL_TEST',
+          ),
         ),
         5 => 
         array (
