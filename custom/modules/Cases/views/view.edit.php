@@ -50,6 +50,13 @@ class CasesViewEdit extends ViewEdit {
                     $('#case_update_form_label').closest('td').html('');
                 });
             </script>
+            <style type="text/css">
+                #suggestion_box_c {
+                    border: 1px solid #cccccc;
+                    min-width: 500px;
+                    max-height: 115px;
+                }
+            </style>
         <?php
         }
         $tiny = new SugarTinyMCE();

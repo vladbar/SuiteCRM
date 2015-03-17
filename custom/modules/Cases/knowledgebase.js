@@ -7,7 +7,7 @@
  */
 $(document).ready(function() {
     //bindWithDelay ensures that keyup only fires 2 seconds after user stops typing
-    $('#name').bindWithDelay("keyup", function () {
+   /* $('#name').bindWithDelay("keyup", function () {
         var title = 'KnowledgeBase Suggestions';
         var url = 'index.php?module=Cases&action=get_kb_articles';
 
@@ -116,6 +116,87 @@ $(document).ready(function() {
                 }
             }
         });
+    }, 1000);*/
+
+    $('#name').bindWithDelay("keyup", function () {
+        var url = 'index.php?module=Cases&action=get_kb_articles';
+        var search = $('#name').val();
+        var dataString = 'search=' + search;
+        $.ajax({
+            type:"POST",
+            url:url,
+            data: dataString,
+            success: function (data) {
+                $("#suggestion_box_c").html(data);
+            }
+        });
+
     }, 1000);
+
+
+    $("body").bindWithDelay("click",'.kb_article', function () {
+        var title = 'KnowledgeBase Suggestions';
+        var url = 'index.php?module=Cases&action=get_kb_article';
+
+        if($("#suggestion_box_c").data('qtip') ) {// Updates existing tool-tips content via ajax
+            var article = $(this).data( "id" );
+            var dataString = 'article=' + article;
+            $.ajax({
+                type:"POST",
+                url:url,
+                data: dataString,
+                success: function (data) {
+                    $(".qtip-content").html(data);
+                }
+            });
+        }
+        else {//Creates new qtip tool-tip
+            var article = $(this).data( "id" );
+            var dataString = 'article=' + article;
+            $("#suggestion_box_c").qtip({
+                content: {
+                    text: "Loading...",
+                    ajax:{
+                        url: url, // Use href attribute as URL
+                        type: 'POST', // POST or GET
+                        data: dataString, // Data to pass along with your request
+                        success: function(data, status) {
+                            // Set the content manually (required!)
+                            this.set('content.text', data);
+                        }
+                    },
+                    title: {
+                        button: true, //show close button
+                        text: title
+                    }
+                },
+                position: {
+                    my: 'bottom right',
+                    at: 'top left',
+                    adjust: {
+                        mouse: false,
+                        scroll: false,
+                        y: 5,
+                        x: 25
+                    }
+                },
+                show: {
+                    when: false, // Don't specify a show event
+                    ready: true, // Show the tooltip when ready
+                    delay: 1500,
+                    effect: function() {
+                        $(this).fadeTo(800, 1);
+                    }
+                },
+                hide: false,
+                style: {
+                    classes : 'qtip-default qtip qtip qtip-tipped qtip-shadow', //qtip-rounded'
+                    tip: {
+                        offset: 0
+                    }
+                }
+            });
+        }
+    }, 2000);//bindWithDelay sets delay to 2 seconds
 
 });

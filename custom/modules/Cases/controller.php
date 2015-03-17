@@ -37,12 +37,12 @@ class CustomCasesController extends SugarController {
 
         $result = $GLOBALS['db']->limitQuery($query, $offset, $limit);
         if($result->num_rows != 0){
-            echo '<ul>';
+            echo '<ol>';
             while($row = $GLOBALS['db']->fetchByAssoc($result) )
             {
                 echo '<li style="font-size: 14px; margin-bottom: 6px;"><a class="kb_article" data-id="'.$row['id'].'" href="#">'.$row['name'].'<a/></li>';
             }
-            echo '</ul>';
+            echo '</ol>';
         }
         else {
             echo 'No suggestions';

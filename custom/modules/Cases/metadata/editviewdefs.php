@@ -78,7 +78,6 @@ array (
               'size' => 75,
             ),
           ),
-          1 => '',
         ),
         4 => 
         array (
@@ -89,9 +88,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'test_c',
+            'name' => 'suggestion_box_c',
             'studio' => 'visible',
-            'label' => 'LBL_TEST',
+            'label' => 'LBL_SUGGESTION_BOX',
           ),
         ),
         5 => 
