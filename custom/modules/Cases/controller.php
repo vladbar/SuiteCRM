@@ -9,8 +9,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 class CustomCasesController extends SugarController {
 
-    function action_get_kb_articles(){
-
+   public function action_get_kb_articles(){
+        global $mod_strings;
         $search = $_POST['search'];
 
         $query = "SELECT id, name, description, sum(relevance)
@@ -45,14 +45,36 @@ class CustomCasesController extends SugarController {
             echo '</ol>';
         }
         else {
-            echo 'No suggestions';
+            echo $mod_strings['LBL_NO_SUGGESTIONS'];
         }
         die();
     }
 
-    function action_get_kb_article(){
-        echo 'works';
-        die();
+    public function action_get_kb_article(){
+        global $mod_strings;
+
+        $article_id = $_POST['article'];
+        $article = new AOK_KnowledgeBase();
+        $article->retrieve($article_id);
+
+        echo '<span class="tool-tip-title"><strong>'.$mod_strings['LBL_TOOL_TIP_TITLE'].'</strong>'.$article->name.'</span><br />';
+        echo '<span class="tool-tip-title"><strong>'.$mod_strings['LBL_TOOL_TIP_BODY'].'</strong></span>'.html_entity_decode($article->description);
+
+        if(!$this->IsNullOrEmptyString($article->additional_info)){
+            echo '<hr id="tool-tip-separator">';
+            echo '<span class="tool-tip-title"><strong>'.$mod_strings['LBL_TOOL_TIP_INFO'].'</strong></span><p id="additional_info_p">'.$article->additional_info.'</p>';
+            echo '<span class="tool-tip-title"><strong>'.$mod_strings['LBL_TOOL_TIP_USE'].'</strong></span><br />';
+            echo '<input id="use_resolution" name="use_resolution" class="button" type="button" value="'.$mod_strings['LBL_RESOLUTION_BUTTON'].'" />';
+        }
+
+       die();
     }
+
+    // Function for basic field validation (present and neither empty nor only white space
+   private function IsNullOrEmptyString($question){
+        return (!isset($question) || trim($question)==='');
+    }
+
+
 
 }

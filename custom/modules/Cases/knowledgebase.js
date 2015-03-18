@@ -1,123 +1,11 @@
 /**
- *
  * @author SalesAgility (Andrew Mclaughlan) <support@salesagility.com>
  * Date: 06/03/15
- * Using Qtip to provide KnowledgeBase suggestions overlay.
+ * Using Qtip to provide KnowledgeBase article overlay.
  * Using bindWithDelay to delay request until after the user has stopped typing
  */
 $(document).ready(function() {
-    //bindWithDelay ensures that keyup only fires 2 seconds after user stops typing
-   /* $('#name').bindWithDelay("keyup", function () {
-        var title = 'KnowledgeBase Suggestions';
-        var url = 'index.php?module=Cases&action=get_kb_articles';
-
-        if($(this).data('qtip') ) {// Updates existing tool-tips content via ajax
-            var search = $('#name').val();
-            var dataString = 'search=' + search;
-            $.ajax({
-                type:"POST",
-                url:url,
-                data: dataString,
-                success: function (data) {
-                    $(".qtip-content").html(data);
-                }
-            });
-        }
-        else {//Creates new qtip tool-tip
-            var search = $('#name').val();
-            var dataString = 'search=' + search;
-            $(this).qtip({
-                content: {
-                    text: "Loading...",
-                    ajax:{
-                        url: url, // Use href attribute as URL
-                        type: 'POST', // POST or GET
-                        data: dataString, // Data to pass along with your request
-                        success: function(data, status) {
-                            // Set the content manually (required!)
-                            this.set('content.text', data);
-                        }
-                    },
-                    title: {
-                        button: true, //show close button
-                        text: title
-                    }
-                },
-                position: {
-                    my: 'center left',
-                    at: 'center right',
-                    adjust: {
-                        mouse: false,
-                        scroll: false,
-                        y: 5,
-                        x: 25
-                    }
-                },
-                show: {
-                    when: false, // Don't specify a show event
-                    ready: true, // Show the tooltip when ready
-                    delay: 1500,
-                    effect: function() {
-                        $(this).fadeTo(800, 1);
-                    }
-                },
-                hide: false,
-                style: {
-                    classes : 'qtip-default qtip qtip qtip-tipped qtip-shadow', //qtip-rounded'
-                    tip: {
-                        offset: 0
-                    }
-                }
-            });
-        }
-    }, 2000);//bindWithDelay sets delay to 2 seconds
-
-    $("body").bindWithDelay("click",'.kb_article', function () {
-        $(this).qtip({
-            content: {
-                text: "Loading...",
-                ajax:{
-                    url: 'index.php?module=Cases&action=get_kb_article', // Use href attribute as URL
-                    type: 'POST', // POST or GET
-                    data: {}, // Data to pass along with your request
-                    success: function(data, status) {
-                        // Set the content manually (required!)
-                        this.set('content.text', data);
-                    }
-                },
-                title: {
-                    button: true, //show close button
-                    text: 'title'
-                }
-            },
-            position: {
-                my: 'center left',
-                at: 'center right',
-                adjust: {
-                    mouse: false,
-                    scroll: false,
-                    y: 5,
-                    x: 25
-                }
-            },
-            show: {
-                when: false, // Don't specify a show event
-                ready: true, // Show the tooltip when ready
-                delay: 1500,
-                effect: function() {
-                    $(this).fadeTo(800, 1);
-                }
-            },
-            hide: false,
-            style: {
-                classes : 'qtip-default qtip qtip qtip-tipped qtip-shadow', //qtip-rounded'
-                tip: {
-                    offset: 0
-                }
-            }
-        });
-    }, 1000);*/
-
+    //Get KnowledgeBase article suggestions based on what is typed into the name field
     $('#name').bindWithDelay("keyup", function () {
         var url = 'index.php?module=Cases&action=get_kb_articles';
         var search = $('#name').val();
@@ -132,13 +20,12 @@ $(document).ready(function() {
         });
 
     }, 1000);
-
-
-    $("body").bindWithDelay("click",'.kb_article', function () {
-        var title = 'KnowledgeBase Suggestions';
+    //open article in tool-tip on hover over suggestion box list items
+    $("body").on("mouseover",'.kb_article', function () {
+        var title = SUGAR.language.get('Cases', 'LBL_TOOL_TIP_BOX_TITLE');
         var url = 'index.php?module=Cases&action=get_kb_article';
-
-        if($("#suggestion_box_c").data('qtip') ) {// Updates existing tool-tips content via ajax
+        // Updates existing tool-tips content via ajax
+        if($("#suggestion_box_c").data('qtip') ) {
             var article = $(this).data( "id" );
             var dataString = 'article=' + article;
             $.ajax({
@@ -170,20 +57,20 @@ $(document).ready(function() {
                         text: title
                     }
                 },
-                position: {
-                    my: 'bottom right',
-                    at: 'top left',
+                position: { //position of tool-tip relative to suggestion box
+                    my: 'middle right',
+                    at: 'middle left',
                     adjust: {
                         mouse: false,
-                        scroll: false,
-                        y: 5,
-                        x: 25
+                        scroll: true,
+                        y: -100,
+                        x: 0
                     }
                 },
                 show: {
-                    when: false, // Don't specify a show event
+                    event: 'mouseover', // Show it on click...
                     ready: true, // Show the tooltip when ready
-                    delay: 1500,
+                    delay: 1000,
                     effect: function() {
                         $(this).fadeTo(800, 1);
                     }
@@ -197,6 +84,19 @@ $(document).ready(function() {
                 }
             });
         }
-    }, 2000);//bindWithDelay sets delay to 2 seconds
+    });
+    //Animate transfer effect from additional into resolution box
+    $("body").on("click",'#use_resolution', function () {
+        if($.trim($('#additional_info_p').html()) != ''){
+            $('#additional_info_p').effect("transfer", { to: "#resolution", className: "transfer" }, 1000, moveText);
+        }
+    });
 
+    // callback function to bring text to the resolution box
+    function moveText() {
+        setTimeout(function() {
+            var text = $('#additional_info_p').text();
+            $('#resolution').val(text);
+        }, 300 );
+    };
 });
