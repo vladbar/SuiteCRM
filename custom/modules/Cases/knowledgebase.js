@@ -87,7 +87,7 @@ $(document).ready(function() {
     });
     //Animate transfer effect from additional into resolution box
     $("body").on("click",'#use_resolution', function () {
-        if($.trim($('#additional_info_p').html()) != ''){
+        if($('#additional_info_p').text() !=  $('#resolution').val()){
             $('#additional_info_p').effect("transfer", { to: "#resolution", className: "transfer" }, 1000, moveText);
         }
     });

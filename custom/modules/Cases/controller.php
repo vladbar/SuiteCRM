@@ -11,19 +11,21 @@ class CustomCasesController extends SugarController {
 
    public function action_get_kb_articles(){
         global $mod_strings;
+        global $app_list_strings;
         $search = $_POST['search'];
+        $status_list = $app_list_strings['aok_status_list'];
 
-        $query = "SELECT id, name, description, sum(relevance)
+        $query = "SELECT id, name, description, status, sum(relevance)
                   FROM (
-                        SELECT id, name, description, 10 AS relevance
+                        SELECT id, name, description, status, 10 AS relevance
                         FROM aok_knowledgebase
                         WHERE name = '".$search."'
                         AND deleted = '0'
-                        UNION SELECT id, name, description, 5 AS relevance
+                        UNION SELECT id, name, description, status, 5 AS relevance
                         FROM aok_knowledgebase
                         WHERE name LIKE '%".$search."%'
                         AND deleted = '0'
-                        UNION SELECT id, name, description, 2 AS relevance
+                        UNION SELECT id, name, description, status, 2 AS relevance
                         FROM aok_knowledgebase
                         WHERE description LIKE '%".$search."%'
                         AND deleted = '0'
@@ -37,19 +39,25 @@ class CustomCasesController extends SugarController {
 
         $result = $GLOBALS['db']->limitQuery($query, $offset, $limit);
         if($result->num_rows != 0){
-            echo '<ol>';
+            echo '<table>';
+            echo '<tr><th>'.$mod_strings['LBL_SUGGESTION_BOX_REL'].'</th><th>'.$mod_strings['LBL_SUGGESTION_BOX_TITLE'].'</th><th>'.$mod_strings['LBL_SUGGESTION_BOX_STATUS'].'</th></tr>';
+            $count =1;
             while($row = $GLOBALS['db']->fetchByAssoc($result) )
             {
-                echo '<li style="font-size: 14px; margin-bottom: 6px;"><a class="kb_article" data-id="'.$row['id'].'" href="#">'.$row['name'].'<a/></li>';
+                echo '<tr class="kb_article" data-id="'.$row['id'].'">';
+                echo '<td> &nbsp;'.$count.'</td>';
+                echo '<td>'.$row['name'].'</td>';
+                echo '<td>'.$status_list = $app_list_strings['aok_status_list'][$row['status']].'</td>';
+                echo '</tr>';
+                $count++;
             }
-            echo '</ol>';
+            echo '</table>';
         }
         else {
             echo $mod_strings['LBL_NO_SUGGESTIONS'];
         }
         die();
     }
-
     public function action_get_kb_article(){
         global $mod_strings;
 
